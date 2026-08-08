@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ንጋት Ethiopia</string>
+    <string name="app_name_english">Nigat Ethiopia</string>
+
+    <string name="home_welcome">Welcome to ንጋት</string>
+    <string name="home_subtitle">Ethiopian Exam Preparation</string>
+    <string name="chapters">Chapters</string>
+    <string name="vocabulary">Vocabulary</string>
+    <string name="progress">Progress</string>
+    <string name="quick_quiz">Quick Quiz</string>
+    <string name="trap_questions">Trap Questions</string>
+    <string name="study_stats">Study Stats</string>
+
+    <string name="total_questions">Total Questions</string>
+    <string name="total_words">Total Words</string>
+    <string name="due_today">Due Today</string>
+    <string name="trap_count">Trap Questions</string>
+
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="finish">Finish</string>
+    <string name="submit">Submit</string>
+    <string name="explanation">Explanation</string>
+
+    <string name="show_definition">Show Definition</string>
+    <string name="again">Again</string>
+    <string name="hard">Hard</string>
+    <string name="good">Good</string>
+    <string name="easy">Easy</string>
+
+    <string name="correct_label">Correct</string>
+    <string name="incorrect_label">Incorrect</string>
+
+    <string name="search_hint">Search words or definitions...</string>
+    <string name="no_results">No results found</string>
+
+    <string name="trap_badge">TRAP</string>
+    <string name="appendix_b">Appendix B</string>
+</resources>

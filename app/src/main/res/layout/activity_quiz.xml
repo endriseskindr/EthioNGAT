@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="48dp"
+            android:indeterminateTint="@color/primary" />
+
+        <LinearLayout
+            android:id="@+id/emptyState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="48dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No questions available"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/quizContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <!-- Progress -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvProgress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="1 / 20"
+                        android:textColor="@color/primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/trapBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/trap_bg"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/trap_badge"
+                        android:textColor="@color/trap_text"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressIndicator"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="8dp"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressTint="@color/accent"
+                    android:progressBackgroundTint="#E3F2FD" />
+            </LinearLayout>
+
+            <!-- Result row -->
+            <LinearLayout
+                android:id="@+id/resultRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/resultIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_check"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/resultText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Correct!"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Question -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tvQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="Question text goes here"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp"
+                    android:lineSpacingExtra="4sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Options -->
+            <Button
+                android:id="@+id/optionA"
+                style="@style/Widget.Nigat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="6dp"
+                android:background="@drawable/bg_option_normal"
+                android:gravity="start|center_vertical"
+                android:minHeight="56dp"
+                android:paddingHorizontal="16dp"
+                android:text="A. Option A"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                app:iconGravity="textStart" />
+
+            <Button
+                android:id="@+id/optionB"
+                style="@style/Widget.Nigat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="6dp"
+                android:background="@drawable/bg_option_normal"
+                android:gravity="start|center_vertical"
+                android:minHeight="56dp"
+                android:paddingHorizontal="16dp"
+                android:text="B. Option B"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary" />
+
+            <Button
+                android:id="@+id/optionC"
+                style="@style/Widget.Nigat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="6dp"
+                android:background="@drawable/bg_option_normal"
+                android:gravity="start|center_vertical"
+                android:minHeight="56dp"
+                android:paddingHorizontal="16dp"
+                android:text="C. Option C"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary" />
+
+            <Button
+                android:id="@+id/optionD"
+                style="@style/Widget.Nigat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="6dp"
+                android:background="@drawable/bg_option_normal"
+                android:gravity="start|center_vertical"
+                android:minHeight="56dp"
+                android:paddingHorizontal="16dp"
+                android:text="D. Option D"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary" />
+
+            <Button
+                android:id="@+id/optionE"
+                style="@style/Widget.Nigat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="6dp"
+                android:background="@drawable/bg_option_normal"
+                android:gravity="start|center_vertical"
+                android:minHeight="56dp"
+                android:paddingHorizontal="16dp"
+                android:text="E. Option E"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:visibility="gone" />
+
+            <!-- Explanation -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/explanationCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#E8F5E9"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/explanation"
+                        android:textColor="@color/correct"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvExplanation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Explanation text here"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="3sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Navigation -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/btnPrevious"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/previous"
+                    android:textAllCaps="false"
+                    android:visibility="invisible"
+                    app:cornerRadius="12dp"
+                    app:strokeColor="@color/primary" />
+
+                <Button
+                    android:id="@+id/btnNext"
+                    style="@style/Widget.Nigat.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/primary"
+                    android:text="@string/next"
+                    app:cornerRadius="12dp" />
+
+                <Button
+                    android:id="@+id/btnFinish"
+                    style="@style/Widget.Nigat.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/correct"
+                    android:text="@string/finish"
+                    android:visibility="gone"
+                    app:cornerRadius="12dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
