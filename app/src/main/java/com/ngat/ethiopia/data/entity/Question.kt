@@ -1,9 +1,24 @@
 package com.ngat.ethiopia.data.entity
 
 import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "questions")
+@Entity(
+    tableName = "questions",
+    foreignKeys = [
+        ForeignKey(
+            entity = Chapter::class,
+            parentColumns = ["id"],
+            childColumns = ["chapter_id"]
+        )
+    ],
+    indices = [
+        Index(value = ["is_trap"], name = "idx_questions_is_trap"),
+        Index(value = ["chapter_id"], name = "idx_questions_chapter")
+    ]
+)
 data class Question(
     @PrimaryKey val id: String,
     val chapter_id: Int,

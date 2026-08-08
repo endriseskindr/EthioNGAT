@@ -20,7 +20,7 @@ interface UserProgressDao {
     @Query("SELECT * FROM user_progress WHERE item_type = :type AND item_id = :id")
     suspend fun getProgress(type: String, id: String): UserProgress?
 
-    @Query("SELECT * FROM user_progress WHERE item_type = :type AND (due_at IS NULL OR due_at <= :now) ORDER BY CASE WHEN due_at IS NULL THEN 0 ELSE 1 END, due_at ASC")
+    @Query("SELECT * FROM user_progress WHERE item_type = :type AND (due_at IS NULL OR due_at <= :now) ORDER BY due_at ASC NULLS FIRST")
     fun getDueItems(type: String, now: Long): Flow<List<UserProgress>>
 
     @Query("SELECT COUNT(*) FROM user_progress WHERE item_type = :type AND (due_at IS NULL OR due_at <= :now)")

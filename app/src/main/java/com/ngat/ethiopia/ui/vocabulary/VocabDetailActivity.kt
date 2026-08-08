@@ -72,8 +72,8 @@ class VocabDetailActivity : AppCompatActivity() {
     }
 
     private fun toggleReveal() {
-        definitionRevealed = !definitionRevealed
-        if (definitionRevealed) {
+        definitionReveal = !definitionReveal
+        if (definitionReveal) {
             binding.definitionGroup.visibility = View.VISIBLE
             binding.btnReveal.visibility = View.GONE
             binding.difficultyGroup.visibility = View.VISIBLE
